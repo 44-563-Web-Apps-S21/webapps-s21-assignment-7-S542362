@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> page listy</title>
+  <title> List </title>
 
    <style>
         .flex-container {
             display: flex;
             flex-direction: row;
-            background-color:yellow;
+            background-color:rgb(189, 255, 8);
         }
         
         .flex-container>div {
-            background-color:red;
+            background-color: #f1f1f1;
             margin: 10px;
             padding: 20px;
             font-size: 30px;
         }
-        #button{background-color: pink;
+        #button{background-color: #1bb7ff;
         width: 150px;
         height:50px;
         font-weight: bold;}
@@ -26,14 +26,14 @@
         @media (max-width: 600px) {
             .flex-container {
                 flex-direction: column;
-                background-color: blue;
+                background-color: rgb(48, 211, 211);
         
             }
         }
     </style>
 </head>
 <body>
-    <h1 class="text-dark"> builds a list by shaik shabnam </h1>
+    <h1 class="text-dark"> builds a list by shabnam shaik </h1>
     <label for="text" id="12" style= "font-size:25px";> Enter a word </label>
     <input type="text" id="text" name="form1_text"> <br>
     <br>
@@ -53,7 +53,7 @@
             const element = document.createElement("div");
             element.innerHTML = document.getElementById("text").value;
             element.setAttribute('class', 'listy');
-            element.style.color = "orange"
+            element.style.color = "black"
             var i;
             var listyItems = document.getElementsByClassName("listy");
             len = listyItems.length;
@@ -78,4 +78,3 @@
         </script>
         </body>
         </html>
-</html>	
