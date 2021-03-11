@@ -1,49 +1,81 @@
 <!DOCTYPE html>
-<html> <head> <style>
-    .flex-container {
-      display: flex;  flex-direction:row;
-      background-color: red;
-  }
+<html lang="en">
+<head>
+  <title> page listy</title>
 
-.flex-container > div {  /*div children of the flex container*/
-  background-color: #f1f1f1; 
-  margin: 10px;  padding: 20px;  font-size: 30px;
-}
+   <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            background-color:yellow;
+        }
+        
+        .flex-container>div {
+            background-color:red;
+            margin: 10px;
+            padding: 20px;
+            font-size: 30px;
+        }
+        #button{background-color: pink;
+        width: 150px;
+        height:50px;
+        font-weight: bold;}
 
-/* Responsive layout */
-@media (max-width: 600px) { 
-	 .flex-container{
-		 flex-direction:column;
-		 background-color: green;
-	  }
-	}
-</style></head>
-
-
-
+        
+        
+        @media (max-width: 600px) {
+            .flex-container {
+                flex-direction: column;
+                background-color: blue;
+        
+            }
+        }
+    </style>
+</head>
 <body>
-		<div class="flex-container" id="target">
-		  <div>row item 1</div>   
-		  <div>row item 2</div>  
-		  <div>row item 3</div>  
-		</div>
-	
-	<p> Press the button to create an new element of type div and then add it to the container.
-		</p>
-		<button onclick="makeNewDiv()">Add one</button>
-	
-	
-</body>
-<script>
-	function makeNewDiv(){
-		/* make the div and its text */
-		let element = document.createElement("p")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
+    <h1 class="text-dark"> builds a list by shaik shabnam </h1>
+    <label for="text" id="12" style= "font-size:25px";> Enter a word </label>
+    <input type="text" id="text" name="form1_text"> <br>
+    <br>
 
-		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
-	}
-</script>
+    <div class="flex-container" id="target">
+        <div class="listy"> item 1</div>
+        <div class="listy"> item 2</div>
+        <div class="listy"> item 3</div>
+    </div>
+
+    <p> <b> click the button to add the  row item </b>
+    </p>
+    <button onclick="makeNewDiv()" id="button"> Add one </button>
+
+    <script>
+        function makeNewDiv() {
+            const element = document.createElement("div");
+            element.innerHTML = document.getElementById("text").value;
+            element.setAttribute('class', 'listy');
+            element.style.color = "orange"
+            var i;
+            var listyItems = document.getElementsByClassName("listy");
+            len = listyItems.length;
+            var r = 0;
+            if (len > 8) {
+                for (var k = 0; k < 8; k++) {
+                    if (listyItems[k].innerHTML == element.innerHTML) {
+                        listyItems[k].remove();
+                        console.log("We are getting rid of duplicates");
+                        r = 1;
+                        break;
+                    }
+                }
+                if (r == 0) {
+                    i = Math.floor((Math.random() * 9) + 0);
+                    listyItems[i].remove();
+                }
+            }
+            document.getElementById('target').appendChild(element)
+    
+        }
+        </script>
+        </body>
+        </html>
 </html>	
